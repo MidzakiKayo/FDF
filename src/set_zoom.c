@@ -12,7 +12,7 @@
 
 #include "../include/fdf.h"
 
-void	set_zoom(fdf *data)
+void	set_zoom(t_fdf *data)
 {
 	data->x *= data->zoom;
 	data->y *= data->zoom;

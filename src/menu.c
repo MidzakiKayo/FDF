@@ -12,7 +12,7 @@
 
 #include "../include/fdf.h"
 
-void	print_menu(fdf *param)
+void	print_menu(t_fdf *param)
 {
 	char	*menu;
 

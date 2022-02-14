@@ -32,9 +32,9 @@ void	check_arg(int argc)
 
 int	main(int argc, char **argv)
 {
-	fdf	*data;
+	t_fdf	*data;
 
-	data = (fdf *)malloc(sizeof(fdf));
+	data = (t_fdf *)malloc(sizeof(t_fdf));
 	check_arg(argc);
 	tab_init(data, argv[1]);
 	draw_map(data);

@@ -12,7 +12,15 @@
 
 #include "../include/fdf.h"
 
-void	set_size(fdf *data)
+int	max(int a, int b)
+{
+	if (a > b)
+		return (a);
+	else
+		return (b);
+}
+
+void	set_size(t_fdf *data)
 {
 	data->x += data->screen_width / 2;
 	data->x1 += data->screen_width / 2;

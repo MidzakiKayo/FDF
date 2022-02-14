@@ -13,115 +13,83 @@
 #ifndef FDF_H
 # define FDF_H
 
+# include "./init_mlx/linux/define.h"
 # include "../libft/libft.h"
 # include <fcntl.h>
 # include <math.h>
 
-#define MAX(a, b) (a > b ? a : b)
+typedef struct t_keys
+{
+	int	keyup;
+	int	keyleft;
+	int	keyright;
+	int	keydown;
+	int	keypgup;
+	int	keypgdown;
+	int	keypushup;
+	int	keypushdown;
+	int	keyplus;
+	int	keyminus;
+	int	keyorto;
+	int	keyesc;
+	int	keydefault;
+	int	keycolor;
+}	t_key;
 
-//COLOR
-# define WHITE	0xFFFAFA
-# define RED 	0xfe0009
-# define GREEN 	0x10ff01
-# define BLUE 	0x2300ff
-
-#ifdef __APPLE__
-# include "../minilibx_macos/mlx.h"
-# define KEYUP 			126
-# define KEYLEFT 		123
-# define KEYRIGHT 		124
-# define KEYDOWN 		125
-# define KEYPGUP 		116
-# define KEYPGDOWN 		121
-# define KEYPUSHUP		18
-# define KEYPUSHDOWN	19
-# define KEYPLUS 		24
-# define KEYMINUS 		27
-# define KEYORTO		31
-# define KEYESC 		53
-# define KEYDEFAULT 	34
-# define KEYCOLOR		8
-#endif
-
-#ifdef __linux__
-# include "../minilibx-linux/mlx.h"
-# define KEYUP			65362
-# define KEYLEFT		65361
-# define KEYRIGHT		65363
-# define KEYDOWN		65364
-# define KEYPGUP		65365
-# define KEYPGDOWN		65366
-# define KEYPUSHUP		49
-# define KEYPUSHDOWN	50
-# define KEYPLUS		61
-# define KEYMINUS		45
-# define KEYORTO		111
-# define KEYESC			65307
-# define KEYDEFAULT		105
-# define KEYCOLOR		99
-#endif
-
-
-typedef struct
+typedef struct t_param
 {
 	int		width;
-	int 	height;
-	int 	**z_matrix;
-	int 	zoom;
-	int 	color;
+	int		height;
+	int		**z_matrix;
+	int		zoom;
+	int		color;
 	int		setcolor;
-	int 	screen_height;
-	int 	screen_width;
-	int 	izometric;
-	int 	max;
-	int 	push;
+	int		screen_height;
+	int		screen_width;
+	int		izometric;
+	int		max;
+	int		push;
 	int		x_i;
 	int		y_i;
-	int 	z;
-	int 	z1;
+	int		z;
+	int		z1;
+	float	angle;
+	float	x_step;
+	float	y_step;
+	float	x;
+	float	y;
+	float	x1;
+	float	y1;
 
-	float 	angle;
-	float 	x_step;
-	float 	y_step;
-	float 	x;
-	float 	y;
-	float 	x1;
-	float 	y1;
+	void	*mlx_ptr;
+	void	*win_ptr;
+	t_key		init;
+}	t_fdf;
 
-	void 	*mlx_ptr;
-	void 	*win_ptr;
-} fdf;
-
-//error list
-void	ft_error_fd();
-void	error_argc();
-void	error_extension_map();
-void	error_alloc();
-//control
-int		deal_key(int key, fdf *data);
-void	exit_init(fdf *data);
-void	change_color(fdf *data);
-void	reset_position(fdf *data);
-void	convert_to_2d(fdf *data);
-void    rotate(int key, fdf *data);
-void    move(int key, fdf *data);
-//print_menu
-void	print_menu(fdf *param);
-void	collor(fdf *data);
-//init_tab
-void    tab_init(fdf *data, char *filename);
-//main
+void	key_init(t_fdf *data);
+int		max(int a, int b);
+void	ft_error_fd(void);
+void	error_argc(void);
+void	error_extension_map(void);
+void	error_alloc(void);
+int		deal_key(int key, t_fdf *data);
+void	exit_init(t_fdf *data);
+void	change_color(t_fdf *data);
+void	reset_position(t_fdf *data);
+void	convert_to_2d(t_fdf *data);
+void	rotate(int key, t_fdf *data);
+void	move(int key, t_fdf *data);
+void	print_menu(t_fdf *param);
+void	collor(t_fdf *data);
+void	tab_init(t_fdf *data, char *filename);
 int		main(int argc, char **argv);
 int		ft_len(char *str);
-void    check_arg(int argc);
-//draw
-void	recive_cord1(fdf *data);
-void	recive_cord2(fdf *data, int plusx, int plusy);
-void	set_zoom(fdf *data);
-void	set_size(fdf *data);
-void	draw(fdf *data);
-void	draw_map(fdf *data);
-//readmap
-void	readmap(fdf *data, char *file);
-
+void	check_arg(int argc);
+void	recive_cord1(t_fdf *data);
+void	recive_cord2(t_fdf *data, int plusx, int plusy);
+void	set_zoom(t_fdf *data);
+void	set_size(t_fdf *data);
+void	draw(t_fdf *data);
+void	draw_map(t_fdf *data);
+void	readmap(t_fdf *data, char *file);
 #endif

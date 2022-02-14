@@ -28,7 +28,7 @@ int	get_width(char *line)
 	return (i);
 }
 
-void	alloc_matrix(fdf *data)
+void	alloc_matrix(t_fdf *data)
 {
 	int	i;
 
@@ -59,7 +59,7 @@ void	set_cord(int *z_line, char *line)
 	free (nums);
 }
 
-void	initial_matrix(fdf *data, char *filename)
+void	initial_matrix(t_fdf *data, char *filename)
 {
 	int		fd;
 	int		y;
@@ -79,7 +79,7 @@ void	initial_matrix(fdf *data, char *filename)
 	close(fd);
 }
 
-void	readmap(fdf *data, char *filename)
+void	readmap(t_fdf *data, char *filename)
 {
 	int		fd;
 	char	*line;

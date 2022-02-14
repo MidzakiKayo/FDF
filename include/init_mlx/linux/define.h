@@ -1,25 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   recive_cord.c                                      :+:      :+:    :+:   */
+/*   define.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bchytter <bchytter@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/12 14:32:33 by bchytter          #+#    #+#             */
-/*   Updated: 2022/02/12 14:32:33 by bchytter         ###   ########.fr       */
+/*   Created: 2022/02/14 17:26:56 by bchytter          #+#    #+#             */
+/*   Updated: 2022/02/14 17:26:56 by bchytter         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/fdf.h"
-
-void	recive_cord1(t_fdf *data)
-{
-	data->x = data->x_i;
-	data->y = data->y_i;
-}
-
-void	recive_cord2(t_fdf *data, int plusx, int plusy)
-{
-	data->x1 = data->x_i + plusx;
-	data->y1 = data->y_i + plusy;
-}
+#ifndef DEFINE_H
+# define DEFINE_H
+# include "../../../minilibx-linux/mlx.h"
+#endif

@@ -20,7 +20,7 @@ float	module(float i)
 		return (i);
 }
 
-void	isometric(fdf *data)
+void	isometric(t_fdf *data)
 {
 	data->x = (data->x - data->y) * cos(data->angle);
 	data->y = (data->x + data->y) * sin(data->angle) - data->z;
@@ -28,7 +28,7 @@ void	isometric(fdf *data)
 	data->y1 = (data->x1 + data->y1) * sin(data->angle) - data->z1;
 }
 
-void	get_z(fdf *data)
+void	get_z(t_fdf *data)
 {
 	if (!(data->z_matrix[(int)data->y][(int)data->x]))
 		data->z = data->z_matrix[(int)data->y][(int)data->x];
@@ -40,7 +40,7 @@ void	get_z(fdf *data)
 		data->z1 = data->z_matrix[(int)data->y1][(int)data->x1] + data->push;
 }
 
-void	draw(fdf *data)
+void	draw(t_fdf *data)
 {
 	get_z(data);
 	set_zoom(data);
@@ -50,7 +50,7 @@ void	draw(fdf *data)
 	set_size(data);
 	data->x_step = data->x1 - data->x;
 	data->y_step = data->y1 - data->y;
-	data->max = MAX(module(data->x_step), module(data->y_step));
+	data->max = max(module(data->x_step), module(data->y_step));
 	data->x_step /= data->max;
 	data->y_step /= data->max;
 	while ((int)(data->x - data->x1) || (int)(data->y - data->y1))
@@ -62,7 +62,7 @@ void	draw(fdf *data)
 	}
 }
 
-void	draw_map(fdf *data)
+void	draw_map(t_fdf *data)
 {
 	print_menu(data);
 	data->y_i = 0;

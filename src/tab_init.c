@@ -12,7 +12,7 @@
 
 #include "../include/fdf.h"
 
-void	tab_init(fdf *data, char *filename)
+void	tab_init(t_fdf *data, char *filename)
 {
 	data->height = 0;
 	data->width = 0;
@@ -33,6 +33,7 @@ void	tab_init(fdf *data, char *filename)
 	data->angle = 0.8;
 	data->z_matrix = NULL;
 	readmap(data, filename);
+	key_init(data);
 	data->mlx_ptr = mlx_init();
 	data->win_ptr = mlx_new_window(data->mlx_ptr, data->screen_width,
 			data->screen_height, "FdF - by Bchytter");

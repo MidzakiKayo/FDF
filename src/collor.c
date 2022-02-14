@@ -12,27 +12,27 @@
 
 #include "../include/fdf.h"
 
-void	collor(fdf *data)
+void	collor(t_fdf *data)
 {
 	if (data->setcolor == 1)
 	{
 		if (data->z || data->z1)
-			data->color = RED;
+			data->color = 0xfe0009;
 		else
-			data->color = WHITE;
+			data->color = 0xFFFAFA;
 	}
 	else if (data->setcolor == 2)
 	{
 		if (data->z || data->z1)
-			data->color = GREEN;
+			data->color = 0x10ff01;
 		else
-			data->color = WHITE;
+			data->color = 0xFFFAFA;
 	}
 	else if (data->setcolor == 3)
 	{
 		if (data->z || data->z1)
-			data->color = BLUE;
+			data->color = 0x2300ff;
 		else
-			data->color = WHITE;
+			data->color = 0xFFFAFA;
 	}
 }

@@ -12,7 +12,7 @@
 
 #include "../include/fdf.h"
 
-void	convert_to_2d(fdf *data)
+void	convert_to_2d(t_fdf *data)
 {
 	if (data->izometric)
 		data->izometric = 0;
@@ -20,7 +20,7 @@ void	convert_to_2d(fdf *data)
 		data->izometric = 1;
 }
 
-void	reset_position(fdf *data)
+void	reset_position(t_fdf *data)
 {
 	data->angle = 0.8;
 	data->screen_height = 1000;
@@ -31,7 +31,7 @@ void	reset_position(fdf *data)
 	data->push = 0;
 }
 
-void	change_color(fdf *data)
+void	change_color(t_fdf *data)
 {
 	if (data->setcolor != 3)
 		data->setcolor++;
@@ -39,7 +39,7 @@ void	change_color(fdf *data)
 		data->setcolor = 1;
 }
 
-void	exit_init(fdf *data)
+void	exit_init(t_fdf *data)
 {
 	int	y;
 

@@ -1,6 +1,6 @@
 NAME = fdf
 
-ifeq ($(uname -s),Darwin)
+ifeq ($(uname -s),"Darwin")
 	MLX_DIR = minilibx_macos
 	MLX = libmlx.a
 	DEFINE = include/init_mlx/macos/define.h

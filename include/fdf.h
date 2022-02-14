@@ -44,7 +44,7 @@
 #endif
 
 #ifdef __linux__
-# include "../mlx_linux/mlx.h"
+# include "../minilibx-linux/mlx.h"
 # define KEYUP			65362
 # define KEYLEFT		65361
 # define KEYRIGHT		65363

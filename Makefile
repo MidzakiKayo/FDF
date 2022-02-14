@@ -13,12 +13,15 @@ else
 endif
 
 CC = cc
+GETLIBFT = git clone https://github.com/MidzakiKayo/libft.git
 MAPS = wget https://projects.intra.42.fr/uploads/document/document/7118/maps.zip
 FLAGS = -Wall -Wextra -Werror
 INCLUDES = libft/libft.a $(MLX_DIR)/$(MLX) include/fdf.h $(MLX_DIR)/mlx.h
 SRC = src/*.c
 
 all:
+	@echo "Download LIBFT from git"
+	$(GETLIBFT)
 	@echo "Download Lib minilibx for $(uname -s)"
 	$(GETLIB)
 	$(MAPS)
@@ -31,11 +34,12 @@ all:
 clean:
 	@make -C libft/ clean
 	@make -C $(MLX_DIR) clean
-	@rm -rf $(MLX_DIR) test_maps
+	
 
 fclean: clean
 	/bin/rm -f $(NAME)
 	@make -C libft/ fclean
+	@rm -rf $(MLX_DIR) test_maps libft
 
 re: fclean all
 

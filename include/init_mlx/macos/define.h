@@ -12,5 +12,5 @@
 
 #ifndef DEFINE_H
 # define DEFINE_H
-# include "../../minilibx_macos/mlx.h"
+# include "../../../minilibx_macos/mlx.h"
 #endif

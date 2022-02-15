@@ -1,14 +1,7 @@
 NAME = fdf
-
-ifeq ($(uname -s),"Darwin")
-	MLX_DIR = minilibx_macos
-	MLX = libmlx.a
-	DEFINE = include/init_mlx/macos/define.h
-	KEYSET = key_map/key_mac/key.c
-	GETLIB = curl -O https://projects.intra.42.fr/uploads/document/document/7120/minilibx_macos_sierra_20161017.tgz && tar -xf
-	MAPS = curl -O https://projects.intra.42.fr/uploads/document/document/7118/maps.zip
-	MLX_FLAGS = -g -L -l mlx -framework OpenGL -framework AppKit -lm
-else
+DEFAULTOS = Linux
+OSname = $(uname)
+ifeq ($(OSname),$(Linux))
 	MLX_DIR = minilibx-linux
 	DEFINE = include/init_mlx/linux/define.h
 	KEYSET = key_map/key_linux/key.c
@@ -16,6 +9,14 @@ else
 	MAPS = wget https://projects.intra.42.fr/uploads/document/document/7118/maps.zip
 	MLX = libmlx_Linux.a
 	MLX_FLAGS = -lXext -lX11 -lm
+else
+	MLX_DIR = minilibx_macos
+	MLX = libmlx.a
+	DEFINE = include/init_mlx/macos/define.h
+	KEYSET = key_map/key_mac/key.c
+	GETLIB = curl -O https://projects.intra.42.fr/uploads/document/document/7120/minilibx_macos_sierra_20161017.tgz && tar -xf minilibx_macos_sierra_20161017.tgz
+	MAPS = curl -O https://projects.intra.42.fr/uploads/document/document/7118/maps.zip
+	MLX_FLAGS = -g -L -l mlx -framework OpenGL -framework AppKit -lm
 endif
 
 CC = cc

@@ -35,7 +35,7 @@ all:
 	@rm -rf maps.zip __MACOSX
 	@make -C libft/ all
 	@make -C $(MLX_DIR) all
-	$(CC) $(FLAGS) $(SRC) $(INCLUDES) $(MLX_FLAGS) -o $(NAME)
+	$(CC) $(FLAGS) $(SRC) $(INCLUDES) -o $(NAME) $(MLX_FLAGS)
 
 clean:
 	@make -C libft/ clean

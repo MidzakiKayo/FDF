@@ -16,7 +16,7 @@ else
 	KEYSET = key_map/key_mac/key.c
 	GETLIB = curl -O https://projects.intra.42.fr/uploads/document/document/7120/minilibx_macos_sierra_20161017.tgz && tar -xf minilibx_macos_sierra_20161017.tgz
 	MAPS = curl -O https://projects.intra.42.fr/uploads/document/document/7118/maps.zip
-	MLX_FLAGS = -g -L -l mlx -framework OpenGL -framework AppKit -lm
+	MLX_FLAGS = -g -framework OpenGL -framework AppKit -lm
 endif
 
 CC = cc

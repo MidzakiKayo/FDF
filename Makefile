@@ -1,7 +1,7 @@
 NAME = fdf
-DEFAULTOS = Linux
-OSname = $(uname)
-ifeq ($(OSname),$(Linux))
+DEFAULTOS := "GNU/Linux"
+GETOS := $(shell uname -s)
+ifeq ($(GETOS), Linux)
 	MLX_DIR = minilibx-linux
 	DEFINE = include/init_mlx/linux/define.h
 	KEYSET = key_map/key_linux/key.c
@@ -28,7 +28,7 @@ SRC = src/*.c
 all:
 	@echo "Download LIBFT from git"
 	$(GETLIBFT)
-	@echo "Download Lib minilibx for $(uname -s)"
+	@echo "Download Lib minilibx for $(GETOS)"
 	$(GETLIB)
 	$(MAPS)
 	@unzip maps.zip
